@@ -1,26 +1,30 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './styles/App.css';
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import Navbar from "./components/Navbar";
 
 function App() {
-  return (
-    <div className="App">
-      {/* Routes are declared within this component */}
-      <BrowserRouter>
-      {/* Declared individual component */}
-      <Routes>
-        <Route path="/" element={<HomePage />}/>
-        <Route path="/about" element={<AboutPage />}/>
-        <Route path="/contact" element={<ContactPage/>}/>
+    return (
+        <div className="App">
 
-      </Routes>
 
-      </BrowserRouter>
-      
-    </div>
-  );
+            {/* Routes are declared within this component */}
+            <BrowserRouter>
+                <Navbar />
+                {/* Declared individual component */}
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+
+                </Routes>
+
+            </BrowserRouter>
+
+        </div>
+    );
 }
 
 export default App;
