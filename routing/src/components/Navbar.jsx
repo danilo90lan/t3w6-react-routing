@@ -1,12 +1,24 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "../styles/Navbar.css"
 
 export default function Navbar() {
     return (
         <nav>
+            {/* NavLink got the isActive parameter passed to an arrow functionn to check 
+            if the link is active in order to style it. It returns the isActive class to the link*/}
             <h1>example nav bar content</h1>
-            <Link to={"/"}> Home </Link>
-            <Link to={"/about"}> About </Link>
-            <Link to={"/contact"}> Contact </Link>
+            <NavLink to={"/"} className={({isActive}) => {
+                return isActive ? "active":""
+            }}> Home </NavLink>
+            <NavLink to={"/about"} className={({isActive}) => {
+                console.log(isActive);
+                return isActive ? "active":""
+            }}
+            > About </NavLink>
+            <NavLink to={"/contact"} className={({isActive}) => {
+                return isActive ? "active":""
+            }}
+            > Contact </NavLink>
         </nav>
     )
 }
